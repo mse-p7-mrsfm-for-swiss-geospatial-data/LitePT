@@ -22,7 +22,9 @@ if __name__ == "__main__":
         filename="nuscenes-semseg-litept-small-v1m1/model/model_best.pth",
         repo_type="model"
     )
-    ckpt = torch.load(ckpt_path, map_location="cpu")
+    # The official training checkpoint includes optimizer/config objects.
+    # Only use weights_only=False for checkpoints from a trusted source.
+    ckpt = torch.load(ckpt_path, map_location="cpu", weights_only=False)
     weight = OrderedDict()
     prefix = "module.backbone."
     for key, value in ckpt["state_dict"].items():

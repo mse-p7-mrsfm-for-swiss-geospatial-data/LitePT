@@ -1,0 +1,11 @@
+# Python 3.10/3.11, PyTorch 2.7.1, CUDA 12.8 (including RTX 50 series).
+--extra-index-url https://download.pytorch.org/whl/cu128
+--find-links https://data.pyg.org/whl/torch-2.7.0+cu128.html
+--only-binary torch,torchvision,torch-cluster,torch-scatter,torch-sparse
+torch==2.7.1+cu128
+torchvision==0.22.1+cu128
+torch-cluster==1.6.3+pt27cu128
+torch-scatter==2.1.2+pt27cu128
+torch-sparse==0.6.18+pt27cu128
+spconv-cu126==2.3.8
+-r requirements.txt

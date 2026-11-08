@@ -3,7 +3,7 @@ from functools import partial
 import torch
 import torch.nn as nn
 import spconv.pytorch as spconv
-import flash_attn
+from libs.attention import varlen_attention
 from timm.layers import DropPath
 
 from libs.pointrope import PointROPE
@@ -74,7 +74,7 @@ class PointROPEAttention(PointModule):
             v.reshape(-1, H, C // H)
         ], dim=1) # [N, 3, H, head_dim] 
 
-        feat = flash_attn.flash_attn_varlen_qkvpacked_func(
+        feat = varlen_attention(
             qkv_rotated,
             cu_seqlens,
             max_seqlen=self.patch_size,

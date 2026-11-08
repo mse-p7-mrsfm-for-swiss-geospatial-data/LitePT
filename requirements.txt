@@ -1,6 +1,6 @@
 h5py 
 pyyaml
-sharedarray
+sharedarray; sys_platform == "linux"
 tensorboard
 tensorboardx
 wandb
@@ -17,3 +17,5 @@ torch-sparse
 torch-geometric==2.5.3
 colorhash
 torchmetrics
+huggingface-hub
+regex

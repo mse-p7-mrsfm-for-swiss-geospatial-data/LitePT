@@ -13,7 +13,6 @@ import spconv.pytorch as spconv
 
 import torch.distributed as dist
 from tqdm import tqdm
-import pointops
 
 @MODELS.register_module()
 class DefaultSegmentor(nn.Module):

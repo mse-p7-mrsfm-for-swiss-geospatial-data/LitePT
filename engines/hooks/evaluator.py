@@ -3,7 +3,6 @@ import numpy as np
 import wandb
 import torch
 import torch.distributed as dist
-import pointops
 from uuid import uuid4
 
 import utils.comm as comm
@@ -470,6 +469,8 @@ class InsSegEvaluator(HookBase):
             instance = input_dict["instance"]
             # map to origin
             if "origin_coord" in input_dict.keys():
+                import pointops
+
                 idx, _ = pointops.knn_query(
                     1,
                     input_dict["coord"].float(),

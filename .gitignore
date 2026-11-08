@@ -1,2 +1,6 @@
 data
 exp
+.venv/
+__pycache__/
+*.pyc
+.cache/
